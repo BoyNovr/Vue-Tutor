@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+<p>{{ name }}</p>    
+
+<div v-on:click="updateName">
+    <!-- shorthand v-on bisa di ganti dengan @ -->
+    click me to change name
+</div>
+<div class="box" v-on:mousemove="getCoordinate">
+THIS IS BOX
+</div>
+</div>
+    
+</body>
+<script>
+    const App={
+      data(){
+        return{
+          name:'Boy' ,
+          x:0,
+          y:0 
+        }
+      },
+      methods:{
+        updateName(){
+                this.name='Novriyal'
+        },
+        getCoordinate(event){
+            console.log(event)
+
+        }
+      },  
+        }
+Vue.createApp(App).mount('#app')
+</script>
+<style>
+    .box{
+        background: red;
+        color:white;
+        width: 200px;
+        height: 200px;
+    }
+</style>
+</html>

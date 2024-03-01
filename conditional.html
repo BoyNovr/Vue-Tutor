@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <p v-if="checkWeight()">
+        Kamu boleh bertanding di kelas 60 kg
+      </p>
+      <p v-else-if="checkName()">
+        Kamu tetap boleh bertanding di kelas 60 kg
+      </p>
+      <p v-else-if="age < 25">Kamu tetap Boleh</p>
+      <p v-else>
+        Kamu tidak boleh bertanding di kelas 60 kg
+      </p>
+      <p v-show="checkName()">
+        ini menggunakan v show
+      </p>
+<!-- Beda nya v-show dengan v-if, jika kondisi tidak terpenuhi sama sama tidak menampilkan nilai, tetapi v-show di dom nya tetap menampilkan nilai, tetapi hidden -->
+<!-- v show tidak punya kondisi else -->
+</div>
+    
+</body>
+<script>
+    const App={
+        data(){
+        return{
+         weight:50,
+         allowedWeight:60,
+         age:20,
+         name:'Boy'
+         } },
+
+       methods:{
+        checkWeight(){
+            return this.weight > this.allowedWeight?true:false
+        },
+        checkName(){
+            return this.name==='Boy'?true:false
+        }
+       }
+        }
+Vue.createApp(App).mount('#app')
+</script>
+</html>
