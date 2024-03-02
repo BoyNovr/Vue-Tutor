@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+ <div class="box" 
+ v-bind:class="colors">This Is my box with normal css</div>
+ <div v-on:click="colors.white=!colors.white">Change Color</div>
+</body>
+<script>
+    const App={
+      data(){
+        return{
+            blueColor:true,
+            colors:{
+                blue:true,
+                white:false
+            },
+            colorStyle:{
+                blueStyle:'blue',
+                whiteStyle:'white'
+            }
+          }
+      },
+      methods:{
+    
+    
+      },
+    }
+Vue.createApp(App).mount('#app')
+</script>
+<style>
+    .box{
+        color: white;
+        background: black;
+        padding: 20px;
+    }
+
+    .blue{
+        background: blue;
+        border: 5px solid red;
+
+    }
+    .blue:hover{
+        color:aqua;
+    }
+    .white{
+        background: white;
+        color: black;
+        border: 5px solid black;
+        font-size: 50px;
+        cursor: pointer;
+    }
+    .white:hover{
+        color:blue;
+    }
+    .large{
+        font-size: 50px;
+    }
+</style>
+
+</html>

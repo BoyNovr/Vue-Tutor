@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+<!-- <p> {{ name }}</p>
+  //shorthand <div v-on:click.right="updateName">
+<div v-on:click="updateName"> -->
+  <!-- shorthand v-on menggunakan @ -->
+  <!-- Click me if you want to change the name
+</div>
+<br/>
+<div v-on:click="UpdateWithArg('Ahmad',$event)">
+  click me if you want to change the name with argumen
+</div>
+<br/>
+<div class="box" v-on:mousemove="getCoordinate">
+This is BOX
+</div>
+<p>coordinate x is {{ x }}</p>
+<P>coordinate y is {{ y }}</P>
+</div> -->
+<!-- form v-on:submit.prevent="handleForm" // shorthand-->
+<form v-on:submit="handleForm">
+  <input />
+  <button type="submit">Submit Form</button>
+</form>
+
+</body>
+<script>
+    const App={
+      data(){
+        return{
+        //  name:'Boy',
+        //  x:0,
+        //  y:0
+
+        }
+      },
+      methods:{
+        // updateName(){
+        //   this.name='Novriyal'
+        // },
+        // UpdateWithArg(newName,event){
+        //   this.name=newName
+        //   console.log(event)
+        // },
+        // getCoordinate(event){
+        //   this.x=event.clientX
+        //   this.y=event.clientY
+        // },
+        handleForm(event){
+          event.preventDefault()
+          console.log('submitted')
+        },
+      },
+    }
+Vue.createApp(App).mount('#app')
+</script>
+<style>
+    .box{
+        background: red;
+        color:white;
+        width: 200px;
+        height: 200px;
+    }
+</style>
+</html>

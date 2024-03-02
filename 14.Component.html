@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<!-- alternative jika tidak menggunakan multiple instance bisa menggunakan component yang 
+merupakan sub bagian dari instance, kita bisa membuat banyak component dalam satu instance -->
+<div id="app">
+<header-apps></header-apps>
+<user-name></user-name>
+<footer-name></footer-name>
+</div>
+<script>
+ const App=Vue.createApp({})
+ App.component('header-apps',{
+    data(){
+        return{
+            name:'Header'
+        }
+    },
+    template:"<div class='box'>{{ name }} </div>",
+ })
+
+ App.component('user-name',{
+    data(){
+        return{
+            name:'Zaky'
+        }
+    },
+    template:'<div> {{ name }} </div>',
+ })
+
+ App.component('footer-name',{
+    data(){
+        return{
+            name:'@CopyRight by Boy'
+        }
+    },
+    template:"<div class='box blue'> {{ name }} </div>",
+ })
+
+ App.mount('#app')
+
+</script>
+<style>
+    .box{
+        color: white;
+        background-color: black;
+        padding: 20px;
+    }
+    .blue{
+        background: blue;
+    }
+</style>
+</body>
+
+</html>

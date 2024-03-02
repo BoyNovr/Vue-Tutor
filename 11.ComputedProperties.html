@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <input v-model="name">
+
+    <button v-on:click="handleAktive">Active</button>
+    <hr>
+    <!-- jika pada method untuk pemanggilan fungsi menggunakan () di computer tidak perlu , karena sudah mengenali -->
+<!-- {{ message() }} -->
+{{ message }}
+<hr>
+<!-- {{ messActive() }} -->
+{{ messActive }}
+</div>
+</body>
+<script>
+    const App={
+      data(){
+        return{
+          name:"",   
+          active:false     
+          }
+      },
+      computed:{
+// computed harus mengembalikan nilai dengan return
+//this.active=!this.active =>ini tidak bisa pakai computed maka dari itu pakai method
+        message(){
+            console.log("Typing message")
+            return this.name==='Boy'? "welcome Home":"You are not allowed";
+        },
+        messActive(){
+            console.log('Active Message')
+            return this.active===true?"this is active":"This is not active";
+        },
+      },
+// bedanya methods dengan computed adalah, methods tidak sepintar computed, ketika fungsinya harus nya tidak berjalan di method dia tetap jalan
+// artinya dia tidak mengenali perintah yang di berikan, makanya butuh computed yang lebih pintar, ketika fungsi nya memang harus dijalankan, dia akan berjalan, jika tidak dia tidak akan berjalan
+      methods:{
+        // message(){
+        //     console.log("Typing message")
+        //     return this.name==='Boy'? "welcome Home":"You are not allowed";
+        // },
+        // messActive(){
+        //     console.log('Active Message')
+        //     return this.active===true?"this is active":"This is not active";
+        // },
+        handleAktive(){
+            console.log("Handle aktiv")
+            this.active=!this.active
+        }
+    
+      },
+    }
+Vue.createApp(App).mount('#app')
+</script>
+
+
+</html>
